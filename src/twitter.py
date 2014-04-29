@@ -6,13 +6,11 @@ from tweepy import OAuthHandler
 from tweepy import Stream
 from pymongo import MongoClient
 
-import conf
-
-
-
 
 # Go to http://dev.twitter.com and create an app.
 # The consumer key and secret will be generated for you after
+from src import utils
+
 consumer_key = "A2m8GTNmmCY6CbWyXne7dtPz4"
 consumer_secret = "ONnJllq4YPu8My1hS2CeRiNj92qMz0rXKc5RwVUNfjF9fWoiGl"
 
@@ -49,7 +47,7 @@ class TweetsListener(StreamListener):
         filtered_data["name"] = data["user"]["screen_name"]
         filtered_data["hashtags"] = [ht["text"] for ht in data["entities"]["hashtags"]]
         filtered_data["mentions"] = [mention["screen_name"] for mention in data["entities"]["user_mentions"]]
-        filtered_data['tv_show'] = conf.get_tv_show_from_reference(
+        filtered_data['tv_show'] = utils.get_tv_show_from_reference(
             filtered_data["hashtags"] + filtered_data["mentions"])
         filtered_data["coordinates"] = data["coordinates"]
         self.tweets.insert(filtered_data)
@@ -65,7 +63,7 @@ if __name__ == '__main__':
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
 
-    references = conf.get_all_references()
+    references = utils.get_all_references()
 
     stream = Stream(auth, l)
     stream.filter(track=references)

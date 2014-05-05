@@ -1,2 +1,4 @@
+Django==1.6.4
 pymongo==2.7
 tweepy==2.3.0
+wsgiref==0.1.2

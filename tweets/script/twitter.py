@@ -7,9 +7,11 @@ from tweepy import Stream
 from pymongo import MongoClient
 
 
+
+
 # Go to http://dev.twitter.com and create an app.
 # The consumer key and secret will be generated for you after
-from src import utils
+from tweets.script import utils
 
 consumer_key = "A2m8GTNmmCY6CbWyXne7dtPz4"
 consumer_secret = "ONnJllq4YPu8My1hS2CeRiNj92qMz0rXKc5RwVUNfjF9fWoiGl"
@@ -19,8 +21,6 @@ consumer_secret = "ONnJllq4YPu8My1hS2CeRiNj92qMz0rXKc5RwVUNfjF9fWoiGl"
 access_token = "970374716-ev3RCgeLbzaH6tYmOz7lHmc1ks9Gdci36bdZuBlZ"
 access_token_secret = "vdnaPG6E2yxNkVUkbz45VtXuUvO7qSujwOmFFZa0vWdO0"
 
-nb_with_coordinates = 0
-total = 0
 
 
 class TweetsListener(StreamListener):
@@ -45,6 +45,8 @@ class TweetsListener(StreamListener):
         filtered_data["created_at"] = data["created_at"]
         filtered_data["text"] = data["text"]
         filtered_data["name"] = data["user"]["screen_name"]
+        filtered_data["profile_image"] = data["user"]["profile_image_url"]
+        filtered_data["retweet_count"] = data["retweet_count"]
         filtered_data["hashtags"] = [ht["text"] for ht in data["entities"]["hashtags"]]
         filtered_data["mentions"] = [mention["screen_name"] for mention in data["entities"]["user_mentions"]]
         filtered_data['tv_show'] = utils.get_tv_show_from_reference(

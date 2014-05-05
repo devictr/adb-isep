@@ -1,4 +1,4 @@
-from conf import TV_SHOWS
+from tweets.script.conf import TV_SHOWS
 
 
 def get_all_references():

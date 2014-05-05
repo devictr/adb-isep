@@ -8,7 +8,6 @@ TV_SHOWS = {
         '#WinterIsComing',
         '@GameOfThrones'
     ],
-
     'Suits': [
         '#suits',
         '#harveyspecter',

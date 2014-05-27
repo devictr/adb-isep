@@ -57,9 +57,6 @@ TV_SHOWS = {
     'Breaking Bad': [
         '#BreakingBad'
     ],
-    'Body of Proof': [
-        '#BodyofProof'
-    ],
     'Californication': [
         '#Californication'
     ],

@@ -5,7 +5,7 @@ from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
 from pymongo import MongoClient
-
+from dateutil.parser import parse
 # Go to http://dev.twitter.com and create an app.
 # The consumer key and secret will be generated for you after
 import utils
@@ -38,7 +38,7 @@ class TweetsListener(StreamListener):
         data = json.loads(data)
         self.total += 1
         filtered_data = dict()
-        filtered_data["created_at"] = data["created_at"]
+        filtered_data["created_at"] = parse(data["created_at"])
         filtered_data["text"] = data["text"]
         filtered_data["name"] = data["user"]["screen_name"]
         filtered_data["profile_image"] = data["user"]["profile_image_url"]

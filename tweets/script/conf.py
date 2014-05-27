@@ -30,46 +30,46 @@ TV_SHOWS = {
         '#BigBangTheory',
         '#TBBT',
         '@BigBang_CBS'
-    ]
+    ],
     'Glee': [
         '#glee',
         '@GLEEonFOX'
-    ]
+    ],
     '2 Broke Girls': [
         '#2BrokegGirls',
         '@2BrokeGirls_CBS'
-    ]
-    'American Horror Story' : [ 
+    ],
+    'American Horror Story': [
         '#AmericanHorrorStory'
-    ]
-    'Arrow' : [ 
-         '#Arrow'
-    ]
-    'Almost Human' : [ 
+    ],
+    'Arrow': [
+        '#Arrow'
+    ],
+    'Almost Human': [
         '#AlmostHuman'
-    ]
-    'Boardwalk Empire' : [ 
+    ],
+    'Boardwalk Empire': [
         '#BoardwalkEmpire'
-    ]
-    'Body of Proof' : [ 
+    ],
+    'Body of Proof': [
         '#BodyofProof'
-    ]
-    'Breaking Bad' : [ 
+    ],
+    'Breaking Bad': [
         '#BreakingBad'
-    ]
-    'Body of Proof' : [ 
+    ],
+    'Body of Proof': [
         '#BodyofProof'
-    ]
-    'Californication' : [ 
+    ],
+    'Californication': [
         '#Californication'
-    ]
-    'Dexter' : [ 
+    ],
+    'Dexter': [
         '#Dexter'
-    ]
-    'Dr House' : [ 
+    ],
+    'Dr House': [
         '#DrHouse'
-    ]
-    'Hannibal' : [ 
+    ],
+    'Hannibal': [
         '#Hannibal'
     ]
 

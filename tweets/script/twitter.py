@@ -6,12 +6,9 @@ from tweepy import OAuthHandler
 from tweepy import Stream
 from pymongo import MongoClient
 
-
-
-
 # Go to http://dev.twitter.com and create an app.
 # The consumer key and secret will be generated for you after
-from tweets.script import utils
+import utils
 
 consumer_key = "A2m8GTNmmCY6CbWyXne7dtPz4"
 consumer_secret = "ONnJllq4YPu8My1hS2CeRiNj92qMz0rXKc5RwVUNfjF9fWoiGl"
@@ -20,7 +17,6 @@ consumer_secret = "ONnJllq4YPu8My1hS2CeRiNj92qMz0rXKc5RwVUNfjF9fWoiGl"
 # Create an access token under the the "Your access token" section
 access_token = "970374716-ev3RCgeLbzaH6tYmOz7lHmc1ks9Gdci36bdZuBlZ"
 access_token_secret = "vdnaPG6E2yxNkVUkbz45VtXuUvO7qSujwOmFFZa0vWdO0"
-
 
 
 class TweetsListener(StreamListener):

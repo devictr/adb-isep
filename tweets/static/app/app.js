@@ -1,12 +1,8 @@
 'use strict';
 
-var projetBDD = angular.module('projetBDD', [
+var projetBDD = angular.module('bdd', [
         'ngRoute',
-        'ngCookies',
-        function ($interpolateProvider) {
-            $interpolateProvider.startSymbol("{$");
-            $interpolateProvider.endSymbol("$}");
-        }
+        'ngCookies'
     ]).config(function ($httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 });
@@ -18,7 +14,7 @@ projetBDD.run(function ($http, $cookies) {
 projetBDD.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/', {
-                  templateUrl: '/assets/app/views/home.html',
+                  templateUrl: '/static/app/views/home.html',
                   controller: 'HomeCtrl'
               });
     $routeProvider.otherwise({redirectTo: '/'});

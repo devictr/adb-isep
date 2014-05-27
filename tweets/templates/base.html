@@ -1,6 +1,6 @@
 <!doctype html>
 {% load staticfiles %}
-<html lang="en" ng-app="projetBDD">
+<html lang="en" ng-app="bdd">
 <head>
 	<meta charset="UTF-8">
 	<title>TV Show Tweets !</title>
@@ -9,12 +9,11 @@
     <script src="{% static "bower_components/angular/angular.min.js" %}"></script>
     <script src="{% static "bower_components/angular-cookies/angular-cookies.min.js" %}"></script>
     <script src="{% static "bower_components/angular-route/angular-route.min.js" %}"></script>
-    <script src="{% static "app/controllers/home.js" %}"></script>
     <script src="{% static "app/app.js" %}"></script>
+    <script src="{% static "app/controllers/home.js" %}"></script>
 </head>
 <body>
 	<p>coucou</p>
     <ng-view></ng-view>
-    <input type="text" ng-model="variable"/>
 </body>
 </html>

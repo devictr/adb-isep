@@ -54,4 +54,4 @@ docs/_build/
 *.pyc
 
 .idea
-*.sqlite
+*.sqlite3

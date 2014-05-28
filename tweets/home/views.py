@@ -8,6 +8,7 @@ from pymongo import MongoClient
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from tweets.settings import MONGO_DATABASE
+from script.tvshows import TV_SHOWS
 from bson import json_util
 
 def cursor_to_json(cursor):
@@ -44,3 +45,10 @@ def get_last_tweets(request, tv_show_name):
     pprint(result[0])
     result = cursor_to_json(result)
     return Response({"tv_show_last_tweets": result})
+
+@api_view(['GET'])
+def get_names_TVShows (request):
+    tv_shows = []
+    for k, v in TV_SHOWS.iteritems():
+        tv_shows.append(k)
+    return Response({"tv_shows_names" : tv_shows})

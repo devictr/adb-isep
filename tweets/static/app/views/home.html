@@ -3,7 +3,7 @@
   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></button>
   <span class="dropdown-arrow"></span>
   <ul class="dropdown-menu">
-    <li ng-repeat="element in " ></li>
+    <li ng-repeat="element in tvShowsNames | orderBy: 'toString()'"><a href="">{{element}}</a></li>
   </ul>
 </div>
 

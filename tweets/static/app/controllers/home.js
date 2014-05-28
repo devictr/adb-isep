@@ -1,4 +1,12 @@
 projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
+    $http.get("/api/tweets/names").success(function (data, status, headers, config) {
+        $scope.tvShowsNames = data.tv_shows_names;
+        $scope.status = status;
+    })
+        .error(function (data, status, headers, config) {
+                   $scope.data = data || "Request failed";
+                   $scope.status = status;
+               });
 
     function updateCount() {
         var cacheVersion = new Date().getTime();
@@ -17,7 +25,7 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
 
     function updateLastTweets() {
         var cacheVersion = new Date().getTime();
-        $http.get("/api/tweets/last/"+ $scope.formTVShow).success(function (data, status, headers, config) {
+        $http.get("/api/tweets/last/" + $scope.formTVShow).success(function (data, status, headers, config) {
             $scope.tvShowsLast = data.tv_show_last_tweets;
             $scope.status = status;
         })
@@ -27,7 +35,7 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
                    });
         $timeout(updateLastTweets, 5000, true);
     }
-    updateLastTweets();
 
+    updateLastTweets();
 
 });

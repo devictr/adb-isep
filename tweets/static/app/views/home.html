@@ -1,3 +1,13 @@
+<!-- Default look -->
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></button>
+  <span class="dropdown-arrow"></span>
+  <ul class="dropdown-menu">
+    <li ng-repeat="element in " ></li>
+  </ul>
+</div>
+
+
 <div class="row">
     <ul>
         <li ng-repeat="element in tvShowsCount | orderBy: '-count'">{{ element.tv_show }} : {{ element.count }}</li>

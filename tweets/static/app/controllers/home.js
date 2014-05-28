@@ -28,4 +28,6 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
         $timeout(updateLastTweets, 5000, true);
     }
     updateLastTweets();
+
+
 });

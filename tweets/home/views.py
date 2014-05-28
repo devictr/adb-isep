@@ -36,3 +36,10 @@ def get_last_tweets(request, tv_show_name):
         }
     ).sort("created_at", -1).limit(10)
     return Response({"tv_show_last_tweets": json.loads(json_util.dumps(result))})
+
+@api_view(['GET'])
+def get_names_TVShows (request):
+    tv_shows = []
+    for k, v in TV_SHOWS.iteritems():
+        tv_shows.append(k)
+    return Response({"tv_shows_names" : tv_shows})

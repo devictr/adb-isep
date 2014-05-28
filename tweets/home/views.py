@@ -30,7 +30,9 @@ def get_tweets(request):
                     }
                    """)
     result = MONGO_DATABASE.group(key={"tv_show": 1}, condition={}, initial={"count": 0}, reduce=reducer)
+    result = [counter for counter in result if counter["tv_show"]]
     return Response({"tv_shows_count": result})
+
 
 @api_view(['GET'])
 def get_last_tweets(request, tv_show_name):

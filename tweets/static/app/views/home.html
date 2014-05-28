@@ -1,7 +1,6 @@
 <div class="row">
     <ul>
-        <li ng-repeat="element in tvShowsCount">{{ element.tv_show }} : {{ element.count }}</li>
-
+        <li ng-repeat="element in tvShowsCount | orderBy: '-count'">{{ element.tv_show }} : {{ element.count }}</li>
     </ul>
 </div>
 

@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from pymongo import MongoClient
 
 PROJECT_HOME = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -110,3 +111,7 @@ STATICFILES_FINDERS = (
 TEMPLATE_DIRS = (
     PROJECT_HOME + "/templates"
 )
+
+_MONGO_CLIENT = MongoClient('localhost', 27017)
+_MONGO_COLLECTION = _MONGO_CLIENT.tweets
+MONGO_DATABASE = _MONGO_COLLECTION.tweets

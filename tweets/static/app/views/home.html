@@ -1,5 +1,11 @@
 <div class="row">
     <ul>
         <li ng-repeat="element in tvShowsCount">{{ element.tv_show }} : {{ element.count }}</li>
+
     </ul>
 </div>
+
+<form id="form_last_tweets">
+    <input type="text" id="last_tweets" ng-model="formTVShow">
+
+</form>

@@ -7,6 +7,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^$', 'home.views.welcome'),
     url(r'^api/tweets$', 'home.views.get_tweets'),
+    url(r'^api/tweets/last/(\w+)$', 'home.views.get_last_tweets')
 )
 
 if not settings.DEBUG:

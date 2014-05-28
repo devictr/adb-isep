@@ -9,15 +9,7 @@ from dateutil.parser import parse
 # Go to http://dev.twitter.com and create an app.
 # The consumer key and secret will be generated for you after
 import utils
-
-consumer_key = "A2m8GTNmmCY6CbWyXne7dtPz4"
-consumer_secret = "ONnJllq4YPu8My1hS2CeRiNj92qMz0rXKc5RwVUNfjF9fWoiGl"
-
-# After the step above, you will be redirected to your app's page.
-# Create an access token under the the "Your access token" section
-access_token = "970374716-ev3RCgeLbzaH6tYmOz7lHmc1ks9Gdci36bdZuBlZ"
-access_token_secret = "vdnaPG6E2yxNkVUkbz45VtXuUvO7qSujwOmFFZa0vWdO0"
-
+from conf import *
 
 class TweetsListener(StreamListener):
     """ A listener handles tweets are the received from the stream.
@@ -58,8 +50,8 @@ class TweetsListener(StreamListener):
 
 if __name__ == '__main__':
     l = TweetsListener()
-    auth = OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_token, access_token_secret)
+    auth = OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
     references = utils.get_all_references()
 

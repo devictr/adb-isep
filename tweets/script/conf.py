@@ -1,74 +1,7 @@
-TV_SHOWS = {
 
-    'Game Of Thrones': [
-        '#gameofthrones',
-        '#got',
-        '#takethetrone',
-        '#BringDowntheKing',
-        '#WinterIsComing',
-        '@GameOfThrones'
-    ],
-    'Suits': [
-        '#suits',
-        '#harveyspecter',
-        '#louislitt',
-        '#littup',
-        '@Suits_USA'
-    ],
+# Twitter API configuration
 
-    'HIMYM': [
-        '#HIMYM',
-        '#HowIMetYourMother',
-        '#HowIMet',
-        '@HIMYM_CBS'
-    ],
-    'Grey\'s Anatomy': [
-        '#GreysAnatomy',
-        '@ABCGreysAnatomy'
-    ],
-    'Big Bang Theory': [
-        '#BigBangTheory',
-        '#TBBT',
-        '@BigBang_CBS'
-    ],
-    'Glee': [
-        '#glee',
-        '@GLEEonFOX'
-    ],
-    '2 Broke Girls': [
-        '#2BrokegGirls',
-        '@2BrokeGirls_CBS'
-    ],
-    'American Horror Story': [
-        '#AmericanHorrorStory'
-    ],
-    'Arrow': [
-        '#Arrow'
-    ],
-    'Almost Human': [
-        '#AlmostHuman'
-    ],
-    'Boardwalk Empire': [
-        '#BoardwalkEmpire'
-    ],
-    'Body of Proof': [
-        '#BodyofProof'
-    ],
-    'Breaking Bad': [
-        '#BreakingBad'
-    ],
-    'Californication': [
-        '#Californication'
-    ],
-    'Dexter': [
-        '#Dexter'
-    ],
-    'Dr House': [
-        '#DrHouse'
-    ],
-    'Hannibal': [
-        '#Hannibal'
-    ]
-
-
-}
+CONSUMER_KEY = "L6ZGosflD657OA7tVKErCWHBI"
+CONSUMER_SECRET = "N7SLrFctf084ngiI2deXk7H9Psn07b6ixbt8dcJqPUEfBwyIKS"
+ACCESS_TOKEN = "2529838722-yQHVEcjr46nSXIYZ5udlJgXlpS1FCIQkjcqJTK8"
+ACCESS_TOKEN_SECRET = "C2gu5c7syMQswLb5UbwB0LLUMGkc8vYiucb0JRneSEWk2"

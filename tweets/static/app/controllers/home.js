@@ -23,9 +23,9 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
 
     updateCount();
 
-    function updateLastTweets() {
+    function updateLastTweets(tvShow) {
         var cacheVersion = new Date().getTime();
-        $http.get("/api/tweets/last/" + $scope.formTVShow).success(function (data, status, headers, config) {
+        $http.get("/api/tweets/last/" + $scope.currentTVShow + "?v=" + cacheVersion).success(function (data, status, headers, config) {
             $scope.tvShowsLast = data.tv_show_last_tweets;
             angular.forEach($scope.tvShowsLast, function (v, k) {
                 v.created_at = new Date(v.created_at);
@@ -36,9 +36,17 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
                        $scope.data = data || "Request failed";
                        $scope.status = status;
                    });
-        //$timeout(updateLastTweets, 5000, true);
+        $timeout(updateLastTweets, 5000, true);
     }
 
-    updateLastTweets();
+    $scope.chooseTVShow = function(tvShow) {
+        $scope.currentTVShow = tvShow;
+        $scope.checkCurrent();
+        updateLastTweets();
+    }
+
+    $scope.checkCurrent = function(tvShow) {
+        
+    }
 
 });

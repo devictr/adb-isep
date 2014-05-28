@@ -1,23 +1,27 @@
 <!-- Default look -->
 <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></button>
-  <span class="dropdown-arrow"></span>
-  <ul class="dropdown-menu">
-    <li ng-repeat="element in tvShowsNames | orderBy: 'toString()'"><a href="">{{element}}</a></li>
-  </ul>
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Choose a TV Show<span class="caret"></span>
+    </button>
+    <span class="dropdown-arrow"></span>
+    <ul class="dropdown-menu">
+        <li ng-class="{highlighted: checkCurrent(element)}" ng-repeat="element in tvShowsNames | orderBy: 'toString()'"><a href="" ng-click="chooseTVShow(element)">{{ element }}</a></li>
+    </ul>
 </div>
 
 
 <div class="row">
+    <div class="col-lg-3">
+        <ul>
+            <li ng-repeat="tv in tvShowsLast | orderBy: '-tv.created_at'">{{ tv.text }}</li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-lg-9">
     <ul>
         <li ng-repeat="element in tvShowsCount | orderBy: '-count'">{{ element.tv_show }} : {{ element.count }}</li>
     </ul>
 </div>
-
-<form id="form_last_tweets">
-    <input type="text" id="last_tweets" ng-model="formTVShow">
-
-</form>
 
 
 <div class="last-tweets row">

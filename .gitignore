@@ -56,4 +56,4 @@ docs/_build/
 .idea
 *.sqlite3
 
-conf.py
+tweets/script/conf.py

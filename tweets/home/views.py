@@ -10,13 +10,6 @@ from rest_framework.response import Response
 from tweets.settings import MONGO_DATABASE
 from bson import json_util
 
-def cursor_to_json(cursor):
-    json_docs = []
-    for doc in cursor:
-        json_doc = json.dumps(doc, default=json_util.default)
-        json_docs.append(json.loads(json_doc))
-    return json_docs
-
 
 def welcome(request):
     return render_to_response("base.html", context_instance=RequestContext(request))
@@ -41,6 +34,4 @@ def get_last_tweets(request, tv_show_name):
             "tv_show": tv_show_name
         }
     ).sort("created_at", -1).limit(10)
-    pprint(result[0])
-    result = cursor_to_json(result)
-    return Response({"tv_show_last_tweets": result})
+    return Response({"tv_show_last_tweets": json.loads(json_util.dumps(result))})

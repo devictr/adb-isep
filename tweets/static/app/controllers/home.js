@@ -27,13 +27,16 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
         var cacheVersion = new Date().getTime();
         $http.get("/api/tweets/last/" + $scope.formTVShow).success(function (data, status, headers, config) {
             $scope.tvShowsLast = data.tv_show_last_tweets;
+            angular.forEach($scope.tvShowsLast, function (v, k) {
+                v.created_at = new Date(v.created_at);
+            });
             $scope.status = status;
         })
             .error(function (data, status, headers, config) {
                        $scope.data = data || "Request failed";
                        $scope.status = status;
                    });
-        $timeout(updateLastTweets, 5000, true);
+        //$timeout(updateLastTweets, 5000, true);
     }
 
     updateLastTweets();

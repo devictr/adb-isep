@@ -2,8 +2,8 @@
 {% load staticfiles %}
 <html lang="en" ng-app="bdd">
 <head>
-	<meta charset="UTF-8">
-	<title>TV Show Tweets !</title>
+    <meta charset="UTF-8">
+    <title>TV Show Tweets !</title>
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}"/>
     <link rel="stylesheet" href="{% static "css/flat-ui.css" %}"/>
     <script src="{% static "bower_components/angular/angular.min.js" %}"></script>
@@ -13,7 +13,25 @@
     <script src="{% static "app/controllers/home.js" %}"></script>
 </head>
 <body>
-	<p>coucou</p>
-    <ng-view></ng-view>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+            <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#">Game Of Tweets</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#fakelink">Home</a></li>
+        </ul>
+
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+<div class="container">
+
+</div>
+<!-- /navbar -->
+<ng-view></ng-view>
 </body>
 </html>

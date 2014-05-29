@@ -30,11 +30,14 @@ def get_tweets(request):
 
 @api_view(['GET'])
 def get_last_tweets(request, tv_show_name):
-    result = MONGO_DATABASE.find(
-        {
-            "tv_show": tv_show_name
-        }
-    ).sort("created_at", -1).limit(10)
+    if tv_show_name == "All":
+        result = MONGO_DATABASE.find().sort("created_at", -1).limit(10)
+    else:
+        result = MONGO_DATABASE.find(
+            {
+                "tv_show": tv_show_name
+            }
+        ).sort("created_at", -1).limit(10)
     return Response({"tv_show_last_tweets": json.loads(json_util.dumps(result))})
 
 @api_view(['GET'])

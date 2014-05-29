@@ -1944,7 +1944,7 @@ fieldset[disabled] .input-group-btn .btn-default.active {
   font-size: 24px;
   line-height: 1.042;
   font-weight: 700;
-  padding: 14px 21px;
+  padding: 10px 21px;
 }
 .navbar-brand > [class*="fui-"] {
   font-size: 19px;
@@ -3808,9 +3808,7 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
   border-radius: 0 0 6px 6px;
 }
 .todo li {
-  background: #34495e url(../images/todo/todo.png) 92% center no-repeat;
   background-size: 20px 20px;
-  cursor: pointer;
   font-size: 14px;
   line-height: 1.214;
   margin-top: 2px;
@@ -3844,8 +3842,6 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
 }
 .todo-search:before {
   position: absolute;
-  font-family: 'Flat-UI-Icons';
-  content: "\e01c";
   font-size: 16px;
   line-height: 17px;
   display: inline-block;
@@ -3896,14 +3892,7 @@ input.todo-search-field.placeholder {
   font-size: 17px;
   margin: 1px 0 3px;
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
-  .todo li {
-    background-image: url(../images/todo/todo-2x.png);
-  }
-  .todo li.todo-done {
-    background-image: url(../images/todo/done-2x.png);
-  }
-}
+
 .video-js {
   background-color: transparent;
   margin-top: -95px;

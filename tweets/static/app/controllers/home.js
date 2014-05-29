@@ -8,21 +8,6 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
                    $scope.status = status;
                });
 
-    function updateCount() {
-        var cacheVersion = new Date().getTime();
-        $http.get("/api/tweets?v=" + cacheVersion).success(function (data, status, headers, config) {
-            $scope.tvShowsCount = data.tv_shows_count;
-            $scope.status = status;
-        })
-            .error(function (data, status, headers, config) {
-                       $scope.data = data || "Request failed";
-                       $scope.status = status;
-                   });
-        $timeout(updateCount, 5000, true);
-    }
-
-    updateCount();
-
     function updateLastTweets(tvShow) {
         var cacheVersion = new Date().getTime();
         $http.get("/api/tweets/last/" + $scope.currentTVShow + "?v=" + cacheVersion).success(function (data, status, headers, config) {
@@ -41,12 +26,25 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
 
     $scope.chooseTVShow = function(tvShow) {
         $scope.currentTVShow = tvShow;
-        $scope.checkCurrent();
         updateLastTweets();
     }
 
-    $scope.checkCurrent = function(tvShow) {
-        
+    $scope.chooseTVShow("All");
+
+    function updateCount() {
+        var cacheVersion = new Date().getTime();
+        $http.get("/api/tweets?v=" + cacheVersion).success(function (data, status, headers, config) {
+            $scope.tvShowsCount = data.tv_shows_count;
+            $scope.status = status;
+        })
+            .error(function (data, status, headers, config) {
+                       $scope.data = data || "Request failed";
+                       $scope.status = status;
+                   });
+        $timeout(updateCount, 5000, true);
     }
+
+    updateCount();
+
 
 });

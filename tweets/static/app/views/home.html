@@ -6,6 +6,9 @@
             </button>
             <span class="dropdown-arrow"></span>
             <ul class="dropdown-menu" style="width: 100%;">
+                <li style="width: 100%;" ng-class="{'selected': element==currentTVShow}"><a href=""
+                                                                                            ng-click="chooseTVShow('All')">All</a>
+                </li>
                 <li style="width: 100%;" ng-class="{'selected': element==currentTVShow}"
                     ng-repeat="element in tvShowsNames | orderBy: 'toString()'"><a href=""
                                                                                    ng-click="chooseTVShow(element)">{{ element }}</a>

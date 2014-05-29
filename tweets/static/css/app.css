@@ -28,3 +28,11 @@
     margin-right: 20px;
     padding-bottom: 5px;
 }
+
+.navbar-brand em {
+    margin-left: 20px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    color: #BDC3C7;
+}

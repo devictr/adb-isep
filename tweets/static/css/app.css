@@ -2,6 +2,25 @@
     margin-bottom: 40px;
 }
 
+.dropdown-tvshows .caret{
+    border-top-color: #1abc9c;
+}
+
+.dropdown-tvshows .caret:hover{
+    border-top-color: white;
+}
+
+.dropdown-tvshows button {
+    width: 100%;
+    color: #1abc9C;
+    background-color: #FFFFFF;
+    border: #1abc9c 1px solid;
+}
+
+.dropdown-tvshows .dropdown-menu li {
+    width: 100%;
+}
+
 .navbar-brand img {
     display: inline-block;
     width: 40px;

@@ -52,9 +52,19 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
         var cacheVersion = new Date().getTime();
         if ($scope.currentTVShow == "All") {
             $http.get("/api/tweets/all-seven" + "?v=" + cacheVersion).success(function (data, status, headers, config) {
-                $scope.sevenDaysTweets = data.seven_days_tweets.reverse();
+                $scope.sevenDaysTweets = data.seven_days_tweets;
+                for (i = 0; i < $scope.sevenDaysTweets.length; i++) {
+                    $scope.sevenDaysTweets[i].data = $scope.sevenDaysTweets[i].data.reverse()
+                }
                 $scope.chartConfig.series = $scope.sevenDaysTweets;
                 console.log($scope.chartConfig);
+                var total = [0, 0, 0, 0, 0, 0, 0];
+                for (i = 0; i < $scope.sevenDaysTweets.length; i++) {
+                    for (j = 0; j < $scope.sevenDaysTweets[i].data.length; j++) {
+                        total[j] += parseInt($scope.sevenDaysTweets[i].data[j]);
+                    }
+                }
+                $scope.chartConfig.series.push({name: "Total", data: total});
                 $('.chart').highcharts($scope.chartConfig);
                 $scope.status = status;
             })
@@ -65,7 +75,7 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
         } else {
             $http.get("/api/tweets/seven/" + $scope.currentTVShow + "?v=" + cacheVersion).success(function (data, status, headers, config) {
                 $scope.sevenDaysTweets = data.seven_days_tweets.reverse();
-                $scope.chartConfig.series[0] = {name: $scope.currentTVShow, data: $scope.sevenDaysTweets};
+                $scope.chartConfig.series = [{name: $scope.currentTVShow, data: $scope.sevenDaysTweets}];
                 $('.chart').highcharts($scope.chartConfig);
                 $scope.status = status;
             })

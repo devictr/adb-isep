@@ -19,11 +19,30 @@
 </div>
 
 
-<div class="row">
-    <div class="col-xs-8">
+<div class="row charts-container">
+    <div class="col-xs-2">
+        <div class="share mrl">
+            <button style="margin: 20px;" class="btn btn-primary" ng-class="{activated: !(currentChart == 'updateSevenDaysTweets')}" ng-click="switchChart('')">7 Days</button>
+            <div class="dropdown" style="left: 20px;bottom: 10px;">
+                <button class="btn btn-primary dropdown-toggle" ng-class="{activated: !(currentChart == 'dayChart')}" data-toggle="dropdown">24 Hours<span
+                        class="caret"></span>
+                </button>
+                <span class="dropdown-arrow"></span>
+                <ul class="dropdown-menu" style="width: 100%;">
+                    <li style="width: 100%;" ng-class="{'selected': element==currentTVShow}"
+                        ng-repeat="element in getLastdaysLabels()"><a href="" ng-click="switchChart(element)">{{ element }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /share -->
+    <div class="col-xs-10">
         <div class="chart"></div>
     </div>
-    <div class="col-xs-4">
+</div>
+<div class="row">
+    <div class="col-xs-5">
         <div class="todo">
             <div class="todo-search">Last tweets</div>
             <ul>
@@ -37,6 +56,7 @@
             </ul>
         </div>
     </div>
+    <div class="col-xs-7"></div>
 </div>
 
 
@@ -58,15 +78,6 @@
                 <li>Audrey Rolland</li>
                 <li>Victor Delépine</li>
             </ul>
-        </div>
-        <div class="col-xs-5">
-            <div class="footer-banner">
-                <h3 class="footer-title">TV Shows count</h3>
-                <ul>
-                    <li ng-repeat="element in tvShowsCount | orderBy: '-count'">{{ element.tv_show }}
-                        : {{ element.count }}</li>
-                </ul>
-            </div>
         </div>
     </div>
 </footer>

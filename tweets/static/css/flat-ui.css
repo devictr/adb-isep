@@ -3638,9 +3638,7 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
   float: right;
   margin: 0;
 }
-.share .btn {
-  border-radius: 0 0 6px 6px;
-}
+
 .share-label {
   float: left;
   font-size: 15px;
@@ -3801,7 +3799,7 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
   border-radius: 6px;
 }
 .todo ul {
-  background-color: #2c3e50;
+  background-color: #eff0f2;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -3830,14 +3828,14 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
   color: #1abc9c;
 }
 .todo li.todo-done .todo-name {
-  color: #1abc9c;
+  color: #34495e;
 }
 .todo-search {
   position: relative;
   background: #1abc9c;
   background-size: 16px 16px;
   border-radius: 6px 6px 0 0;
-  color: #34495e;
+  color: #ffffff;
   padding: 19px 25px 20px;
 }
 .todo-search:before {
@@ -3888,7 +3886,7 @@ input.todo-search-field.placeholder {
   overflow: hidden;
 }
 .todo-name {
-  color: #ffffff;
+  color: #34495e;
   font-size: 17px;
   margin: 1px 0 3px;
 }

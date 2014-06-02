@@ -10,7 +10,9 @@ urlpatterns = patterns('',
     url(r'^api/tweets/last/(.+)$', 'home.views.get_last_tweets'),
     url(r'^api/tweets/names$', 'home.views.get_names_TVShows'),
     url(r'^api/tweets/seven/(.+)$', 'home.views.get_seven_days_tweets'),
-    url(r'^api/tweets/all-seven$', 'home.views.get_all_seven_days_tweets')
+    url(r'^api/tweets/all-seven$', 'home.views.get_all_seven_days_tweets'),
+    url(r'^api/tweets/by-hours$', 'home.views.get_day_tweets'),
+    url(r'^api/tweets/coordinates/(.+)$', 'home.views.get_coords')
 )
 
 if not settings.DEBUG:

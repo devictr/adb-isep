@@ -36,3 +36,21 @@
     font-weight: normal;
     color: #BDC3C7;
 }
+
+.charts-container {
+    margin-bottom: 50px;
+}
+
+.share button {
+    width: 70%;
+}
+
+.share button.activated {
+    background-color: #eff0f2;
+}
+
+.angular-google-map-container { height: 600px; }
+
+footer li {
+    list-style-type: none;
+}

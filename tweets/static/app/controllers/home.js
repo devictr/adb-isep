@@ -1,13 +1,20 @@
 projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
+    var refreshTimeMillisec = 60000;
     $http.get("/api/tweets/names").success(function (data, status, headers, config) {
         $scope.tvShowsNames = data.tv_shows_names;
         $scope.status = status;
     })
         .error(function (data, status, headers, config) {
-                   $scope.data = data || "Request failed";
-                   $scope.status = status;
-               });
+            $scope.data = data || "Request failed";
+            $scope.status = status;
+        });
+    $scope.chooseTVShow = function (tvShow) {
+        $scope.currentTVShow = tvShow;
+        updateLastTweets();
+        updateSevenDaysTweets();
+    };
 
+    $scope.chooseTVShow("All");
     function updateLastTweets(tvShow) {
         var cacheVersion = new Date().getTime();
         $http.get("/api/tweets/last/" + $scope.currentTVShow + "?v=" + cacheVersion).success(function (data, status, headers, config) {
@@ -18,18 +25,12 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
             $scope.status = status;
         })
             .error(function (data, status, headers, config) {
-                       $scope.data = data || "Request failed";
-                       $scope.status = status;
-                   });
-        $timeout(updateLastTweets, 5000, true);
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+        $timeout(updateLastTweets, refreshTimeMillisec, true);
     }
 
-    $scope.chooseTVShow = function(tvShow) {
-        $scope.currentTVShow = tvShow;
-        updateLastTweets();
-    }
-
-    $scope.chooseTVShow("All");
 
     function updateCount() {
         var cacheVersion = new Date().getTime();
@@ -38,13 +39,78 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
             $scope.status = status;
         })
             .error(function (data, status, headers, config) {
-                       $scope.data = data || "Request failed";
-                       $scope.status = status;
-                   });
-        $timeout(updateCount, 5000, true);
+                $scope.data = data || "Request failed";
+                $scope.status = status;
+            });
+        //$timeout(updateCount, refreshTimeMillisec, true);
     }
 
-    updateCount();
+    //updateCount();
+    var animate = true;
 
+    function updateSevenDaysTweets() {
+        var cacheVersion = new Date().getTime();
+        if ($scope.currentTVShow == "All") {
+            $http.get("/api/tweets/all-seven" + "?v=" + cacheVersion).success(function (data, status, headers, config) {
+                $scope.sevenDaysTweets = data.seven_days_tweets.reverse();
+                $scope.chartConfig.series = $scope.sevenDaysTweets;
+                console.log($scope.chartConfig);
+                $('.chart').highcharts($scope.chartConfig);
+                $scope.status = status;
+            })
+                .error(function (data, status, headers, config) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+        } else {
+            $http.get("/api/tweets/seven/" + $scope.currentTVShow + "?v=" + cacheVersion).success(function (data, status, headers, config) {
+                $scope.sevenDaysTweets = data.seven_days_tweets.reverse();
+                $scope.chartConfig.series[0] = {name: $scope.currentTVShow, data: $scope.sevenDaysTweets};
+                $('.chart').highcharts($scope.chartConfig);
+                $scope.status = status;
+            })
+                .error(function (data, status, headers, config) {
+                    $scope.data = data || "Request failed";
+                    $scope.status = status;
+                });
+        }
+        $timeout(updateSevenDaysTweets, refreshTimeMillisec, true);
+    }
 
+    updateSevenDaysTweets();
+
+    function getLastDaysLabels() {
+        var today = new Date();
+        var labels = [today.toString().substring(0, 3)];
+        for (var i = 1; i < 7; i++) {
+            labels.push(new Date(today - 1000 * 60 * 60 * 24 * i).toString().substring(0, 3));
+        }
+        return labels.reverse();
+    }
+
+    $scope.chartConfig = {
+        chart: {
+            type: 'line',
+            animation: false
+        },
+        plotOptions: {
+            series: {
+                animation: false
+            }
+        },
+        series: [
+            {
+                data: []
+            }
+        ],
+        xAxis: {
+            categories: getLastDaysLabels()
+        },
+        title: {
+            text: 'Tweets per Day'
+        },
+        loading: false
+    };
+
+    $('.chart').highcharts($scope.chartConfig);
 });

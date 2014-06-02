@@ -7,7 +7,7 @@ from django.template import RequestContext
 from pymongo import MongoClient
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from tweets.settings import MONGO_DATABASE
+from tweets.settings import MONGO_DATABASE, MONGO_COLLECTION
 from script.tvshows import TV_SHOWS
 from bson import json_util
 
@@ -46,3 +46,15 @@ def get_names_TVShows (request):
     for k, v in TV_SHOWS.iteritems():
         tv_shows.append(k)
     return Response({"tv_shows_names" : tv_shows})
+
+@api_view(['GET'])
+def get_seven_days_tweets(request, tv_show_name):
+    result = MONGO_COLLECTION.system_js.tweetsSevenDays(tv_show_name)
+    return Response({"seven_days_tweets": result})
+
+@api_view(['GET'])
+def get_all_seven_days_tweets(request):
+    result = []
+    for k, v in TV_SHOWS.iteritems():
+        result.append({"name": k, "data": MONGO_COLLECTION.system_js.tweetsSevenDays(k)})
+    return Response({"seven_days_tweets": result})

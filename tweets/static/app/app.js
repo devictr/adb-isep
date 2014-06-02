@@ -2,7 +2,8 @@
 
 var projetBDD = angular.module('bdd', [
         'ngRoute',
-        'ngCookies'
+        'ngCookies',
+        'highcharts-ng'
     ]).config(function ($httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 });

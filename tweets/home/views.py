@@ -8,8 +8,8 @@ from django.template import RequestContext
 # Create your views here.
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from tweets.settings import MONGO_DATABASE, MONGO_COLLECTION
-from script.tvshows import TV_SHOWS
+from tweets.tweets.settings import MONGO_DATABASE, MONGO_COLLECTION
+from tweets.script.tvshows import TV_SHOWS
 from bson import json_util
 
 

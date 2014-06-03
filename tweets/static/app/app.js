@@ -5,8 +5,6 @@ var projetBDD = angular.module('bdd', [
     'ngCookies',
     'highcharts-ng',
     'projetBDD.services',
-    'toggle-switch',
-    'google-maps'
 ]).config(function ($httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 });
@@ -113,7 +111,7 @@ projetBDD.directive('loadingWidget', function (requestNotification, $location) {
 
 projetBDD.run(function ($http, $cookies) {
     $http.defaults.headers.common['X-CSRFToken'] = $cookies['csrftoken'];
-})
+});
 
 projetBDD.config(['$routeProvider', function ($routeProvider) {
     $routeProvider

@@ -17,14 +17,14 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
     $scope.currentChart = "updateSevenDaysTweets";
     $scope.chooseTVShow("All");
 
-    $http.get("/api/tweets/coordinates/"+$scope.currentTVShow).success(function (data, status, headers, config) {
-        $scope.coords = data.coords;
-        $scope.status = status;
-    })
-        .error(function (data, status, headers, config) {
-            $scope.data = data || "Request failed";
-            $scope.status = status;
-        });
+//    $http.get("/api/tweets/coordinates/"+$scope.currentTVShow).success(function (data, status, headers, config) {
+//        $scope.coords = data.coords;
+//        $scope.status = status;
+//    })
+//        .error(function (data, status, headers, config) {
+//            $scope.data = data || "Request failed";
+//            $scope.status = status;
+//        });
 
 
 

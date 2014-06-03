@@ -182,13 +182,4 @@ projetBDD.controller("HomeCtrl", function ($scope, $http, $timeout) {
     };
 
     $('.chart').highcharts($scope.chartConfig);
-
-
-    $scope.map = {
-        center: {
-            latitude: 45,
-            longitude: -14
-        },
-        zoom: 2
-    };
 });

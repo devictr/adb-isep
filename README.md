@@ -10,11 +10,11 @@ Récupération des tweets :
 
 Le fichier conf.py contient la liste des séries et des # et @ que le programme doit suivre depuis la Twitter Streaming API.
 Pour utiliser le script:
-	- Installer python et MongoDB sur son ordinateur
-	- Installer "pip", le gestionnaire de packages python
-	- Créer un "virtualenv" pour le projet et l'activer (facultatif)
-	- Exécuter "pip install -r requirements.txt" dans un terminal
-	- Exécuter "python twitter.py"
+- Installer python et MongoDB sur son ordinateur
+- Installer "pip", le gestionnaire de packages python
+- Créer un "virtualenv" pour le projet et l'activer (facultatif)
+- Exécuter "pip install -r requirements.txt" dans un terminal
+- Exécuter "python twitter.py"
 
 
 Affichage de l'application web :
